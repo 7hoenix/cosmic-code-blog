@@ -42,7 +42,7 @@ head :
 head static =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
+        , siteName = "Cosmic Code"
         , image =
             { url = Pages.Url.external "TODO"
             , alt = "elm-pages logo"
