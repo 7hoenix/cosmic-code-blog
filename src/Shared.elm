@@ -2,6 +2,7 @@ module Shared exposing (Data, Model, Msg(..), SharedMsg(..), template)
 
 import Browser.Navigation
 import DataSource
+import Element as Ui
 import Html exposing (Html)
 import Pages.Flags
 import Pages.PageUrl exposing (PageUrl)
@@ -15,7 +16,7 @@ template : SharedTemplate Msg Model Data msg
 template =
     { init = init
     , update = update
-    , view = view
+    , view = \a b c d e -> view a b c d e |> (\{ body, title } -> { body = Ui.layout [] body, title = title })
     , data = data
     , subscriptions = subscriptions
     , onPageChange = Just OnPageChange
@@ -93,8 +94,8 @@ view :
     -> Model
     -> (Msg -> msg)
     -> View msg
-    -> { body : Html msg, title : String }
+    -> { body : Ui.Element msg, title : String }
 view sharedData page model toMsg pageView =
-    { body = Html.div [] pageView.body
+    { body = Ui.column [] pageView.body
     , title = pageView.title
     }
