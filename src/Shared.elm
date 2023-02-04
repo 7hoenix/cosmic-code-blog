@@ -96,6 +96,6 @@ view :
     -> View msg
     -> { body : Ui.Element msg, title : String }
 view sharedData page model toMsg pageView =
-    { body = Ui.column [] pageView.body
+    { body = Ui.column [ Ui.width Ui.fill, Ui.height Ui.fill ] pageView.body
     , title = pageView.title
     }

@@ -1,11 +1,11 @@
-module View exposing (View, map, placeholder)
+module View exposing (View, map, page)
 
-import Element as Ui exposing (Element)
+import Element as Ui
 
 
 type alias View msg =
     { title : String
-    , body : List (Element msg)
+    , body : List (Ui.Element msg)
     }
 
 
@@ -16,8 +16,8 @@ map fn doc =
     }
 
 
-placeholder : String -> View msg
-placeholder moduleName =
-    { title = "Placeholder - " ++ moduleName
-    , body = [ Ui.text moduleName ]
+page : String -> List (Ui.Element msg) -> View msg
+page moduleName body =
+    { title = "Cosmic Code - " ++ moduleName
+    , body = body
     }
